@@ -1,0 +1,15 @@
+---------- Date: 2015-08-27 19:32:44 ~ IP : 122.173.212.167 ----------
+REQUEST URI : /customise/index.php?route=product/product&product_id=40
+MOD DETAILS:
+   modFile   : /home/symbe123/public_html/customise/vqmod/xml/MMOSolution_mmos_image_effect.xml
+   id        : imageseffected
+   version   : 1.3
+   vqmver    : 2.4.0
+   author    : vqmod.com
+
+File Name    : catalog/view/theme/*/template/product/product.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+
+----------------------------------------------------------------------
+
+

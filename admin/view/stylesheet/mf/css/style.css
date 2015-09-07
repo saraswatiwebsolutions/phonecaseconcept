@@ -1,0 +1,222 @@
+.mega-filter-pro table.attributes > tbody > tr:last-child > td, .mega-filter-pro table.attributes table.list tr:last-child td {
+	border-bottom: none;
+}
+
+.mega-filter-pro table.attributes table.form {
+	border: none;
+	margin: -5px;
+}
+
+.mega-filter-pro table.attributes table.list td {
+	border-right: none !important;
+}
+
+.mega-filter-pro table.attributes {
+	border-bottom: 1px solid #ccc;
+}
+
+.mega-filter-pro table.attributes > tbody > tr:hover, table.attributes > tbody > tr:hover td {
+	background: none !important;
+}
+
+.mega-filter-pro table.attributes table.list tr:hover td {
+	background-color: #FFFFCB !important;
+}
+
+.mega-filter-pro .table thead th {
+	background: #f3f3f3;
+	vertical-align: middle !important;
+}
+
+.mega-filter-pro .table.table-without-thead tbody tr:first-child td {
+	border-top: none;
+}
+
+.mega-filter-pro .vertical-middle {
+	vertical-align: middle !important;
+}
+
+.mega-filter-pro .table thead {
+	font-weight: bold;
+}
+
+.mega-filter-pro .box > .heading .buttons {
+	padding-top: 3px;
+}
+
+.mega-filter-pro .btn {
+	text-decoration: none;
+}
+
+.mega-filter-pro, .mega-filter-pro td, .mega-filter-pro th {
+	font-size: 13px;
+}
+
+.mega-filter-pro .tabs-left, .mega-filter-pro .tabs-right {
+    border-bottom: none;
+    padding-top: 40px;
+}
+.mega-filter-pro .tabs-left {
+    border-right: 1px solid #ddd;
+}
+.mega-filter-pro .tabs-right {
+    border-left: 1px solid #ddd;
+}
+.mega-filter-pro .tabs-left>li, .mega-filter-pro .tabs-right>li {
+    float: none;
+    margin-bottom: 2px;
+}
+.mega-filter-pro .tabs-left>li {
+    margin-right: -1px;
+}
+.mega-filter-pro .tabs-right>li {
+    margin-left: -1px;
+}
+.mega-filter-pro .tabs-left>li.active>a, .mega-filter-pro .tabs-left>li.active>a:hover, .mega-filter-pro .tabs-left>li.active>a:focus {
+    border-bottom-color: #ddd;
+    border-right-color: transparent;
+}
+.mega-filter-pro .tabs-right>li.active>a, .mega-filter-pro .tabs-right>li.active>a:hover, .mega-filter-pro .tabs-right>li.active>a:focus {
+    border-bottom: 1px solid #ddd;
+    border-left-color: transparent;
+}
+.mega-filter-pro .tabs-left>li>a {
+    border-radius: 4px 0 0 4px;
+    margin-right: 0;
+    display:block;
+}
+.mega-filter-pro .tabs-right>li>a {
+    border-radius: 0 4px 4px 0;
+    margin-right: 0;
+}
+
+.mega-filter-pro .modal {
+	overflow-y: hidden;
+}
+.mega-filter-pro .modal-body {
+	overflow-y: auto;
+	padding-bottom: 0;
+}
+.mega-filter-pro .modal-1000 .modal-dialog {
+	width: 960px;
+}
+.mega-filter-pro > .box > .content {
+	overflow: visible;
+}
+
+.mega-filter-pro .table-tbody tbody tr:first-child td {
+	border-top: none;
+}
+.mega-filter-pro .table-thead-bg thead td, .mega-filter-pro .table-thead-bg thead th {
+	background-color: #EFEFEF;
+}
+.mega-filter-pro .table-thead-bg thead td.btn-info, .mega-filter-pro .table-thead-bg thead th.btn-info {
+	background-color: #5BC0DE;
+}
+
+.mega-filter-pro #group-products td code {
+	color: #000;
+	font-weight: bold;
+}
+
+a.cke_button {
+	height: auto !important;
+}
+
+.mega-filter-pro .bs-callout {
+	border-left: 3px solid #eee;
+	margin: 0 0 20px 0;
+	padding: 20px;
+}
+.mega-filter-pro .bs-callout h3 {
+	margin-top: 0;
+	font-size: 16px;
+	font-weight: bold;
+}
+.mega-filter-pro .bs-callout-info {
+	background: #F4F8FA;
+	border-color: #5BC0DE;
+}
+.mega-filter-pro .bs-callout-info h3 {
+	color: #5BC0DE;
+}
+
+.mega-filter-pro blockquote p {
+	font-size: 14px;
+}
+.mega-filter-pro blockquote p input[type="checkbox"] {
+	vertical-align: middle;
+	margin-top: -2px;
+}
+.mega-filter-pro blockquote footer {
+	color: #686868;
+	font-size: 12px;
+}
+.mega-filter-pro blockquote footer code {
+	color: #000;
+	font-size: 12px;
+}
+.mega-filter-pro .bg-primary {
+    background-color: #428BCA;
+    color: #FFFFFF;
+	padding: 2px 5px;
+}
+.mega-filter-pro .bg-danger {
+    background-color: #F2DEDE;
+	padding: 2px 5px;
+}
+.mega-filter-pro label {
+	font-weight: normal;
+}
+.mega-filter-pro .sort-order-items {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.mega-filter-pro .sort-order-items > li {
+	cursor: pointer;
+	display: block;
+}
+.mega-filter-pro .sort-order-items > li > span {
+	margin: 2px;
+	padding: 8px 10px;
+	background: #ededed;
+	display: block;
+}
+.mega-filter-pro .btn-group .btn {
+	opacity: 0.5;
+}
+.mega-filter-pro .btn-group .btn.active, 
+.mega-filter-pro .btn-group .btn.enable {
+	opacity: 1;
+}
+.mega-filter-pro .v-align-middle {
+	vertical-align: middle;
+}
+
+.mega-filter-pro .table-tbody tr:first-child td {
+	border-top: none;
+}
+.mega-filter-pro span.help {
+	display: block;
+	font-size: 11px;
+}
+.mega-filter-pro .scrollbox {
+	width: 300px;
+	height: 150px;
+	overflow-y: auto;
+	border: 1px solid #ccc;
+}
+.mega-filter-pro .scrollbox > div {
+	padding: 3px 3px 3px 7px;
+}
+.mega-filter-pro .scrollbox > div.odd {
+	background: #f0f0f0;
+}
+.mega-filter-pro a[onclick] {
+	cursor: pointer;
+}
+
+#column-left + #content {
+	position: relative;
+}

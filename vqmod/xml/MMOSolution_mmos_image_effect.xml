@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <id>imageseffected</id>
+    <version>1.3</version>
+    <vqmver>2.4.0</vqmver>
+    <author>vqmod.com</author>
+    <!--*header*-->
+    <file name="catalog/controller/common/header.php">      
+        <operation info="replace ABC with 123">
+            <search position="before"><![CDATA[$this->load->model('catalog/category');]]></search>
+            <add><![CDATA[
+                $mmos_image_effect = $this->config->get('mmos_image_effect');
+                if($mmos_image_effect['effect'] == 'slide'){
+                    $data['inhover'] = 'slideUp()';
+                    $data['outhover'] = 'slideDown()';
+                }elseif ($mmos_image_effect['effect'] == 'animate'){
+                    $data['inhover'] = "animate({top:'-'+height+'px'})";
+                    $data['outhover'] = 'animate({top:0})';
+                }elseif ($mmos_image_effect['effect'] == 'fade'){
+                    $data['inhover'] = 'fadeOut("slow")';
+                    $data['outhover'] = 'fadeIn("slow")';
+                }elseif ($mmos_image_effect['effect'] == 'bounce'){
+                    $data['inhover'] = 'toggle( "bounce", { times: 1 }, "slow" )';
+                    $data['outhover'] = 'toggle( "bounce", { times: 1 }, "slow" )'; 
+                }elseif ($mmos_image_effect['effect'] == 'clip'){
+                    $data['inhover'] = 'toggle( "clip", { times: 1 }, "slow" )';
+                    $data['outhover'] = 'toggle( "clip", { times: 1 }, "slow" )';   
+                }elseif ($mmos_image_effect['effect'] == 'drop'){
+                    $data['inhover'] = 'toggle( "drop", { times: 1 }, "slow" )';
+                    $data['outhover'] = 'toggle( "drop", { times: 1 }, "slow" )';
+                }elseif ($mmos_image_effect['effect'] == 'explode'){
+                    $data['inhover'] = 'toggle( "explode", { times: 1 }, "slow" )';
+                    $data['outhover'] = 'toggle( "explode", { times: 1 }, "slow" )';
+                }elseif ($mmos_image_effect['effect'] == 'fold'){
+                    $data['inhover'] = 'toggle( "fold", { times: 1 }, "slow" )';
+                    $data['outhover'] = 'toggle( "fold", { times: 1 }, "slow" )';
+                }elseif ($mmos_image_effect['effect'] == 'puff'){
+                    $data['inhover'] = 'toggle( "puff", { times: 1 }, "slow" )';
+                    $data['outhover'] = 'toggle( "puff", { times: 1 }, "slow" )';
+                }     
+                        ]]></add>
+        </operation>
+    </file>
+    <file name="catalog/view/theme/*/template/common/header.tpl">      
+        <operation info="add java on header">
+            <search position="after"><![CDATA[<script src="catalog/view/javascript/common.js" type="text/javascript"></script>]]></search>
+            <add><![CDATA[
+                <script src="catalog/view/javascript/jquery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+                        ]]></add>
+        </operation>
+        <operation info="add java on header">
+            <search position="before"><![CDATA[</head>]]></search>
+            <add><![CDATA[
+                <script type="text/javascript"><!--
+                    $(document).ready(function() {
+                        $('div.image').mouseenter(function() {
+                                var $img = $(this).find('img.img-responsive');
+                                var height= $img.height()+ 10;
+                                $img.stop( true, true ).<?php echo $inhover;?>;
+                            })
+                            .mouseleave(function() {
+                                var $img = $(this).find('img.img-responsive');
+                                if($img.hasClass('thumb-module')) {
+                                    $img.css({'position':'absolute','left':'11%'});
+                                    $img.stop( true, true ).<?php echo $outhover;?>;
+                                }                  
+                                if($img.hasClass('thumb-cmss')) {
+                                    $img.css({'position':'absolute','left':'6%'});
+                                    $img.stop( true, true ).<?php echo $outhover;?>;
+                                }                  
+                                if($img.hasClass('thumb-pd')) {
+                                    $img.css({'position':'absolute','left':'34%'});
+                                    $img.stop( true, true ).<?php echo $outhover;?>;
+                                }                                   
+                            });
+                    });
+                //--></script>
+                        ]]></add>
+        </operation>
+    </file>
+    
+    <!--*Featured.php*-->
+    <file name="catalog/controller/module/featured.php">
+        <operation info="replace ABC with 123">
+            <search position="after"><![CDATA[$product_info = $this->model_catalog_product->getProduct($product_id);]]></search>
+            <add><![CDATA[
+                    $mmos_thumb = $this->model_catalog_product->getProductImages($product_id);
+            ]]></add>
+        </operation>
+        <operation info="replace ABC with 123">
+            <search position="before"><![CDATA[if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {]]></search>
+            <add><![CDATA[
+                    if ($mmos_thumb[0]['image']) {
+                        $mmos_image_thumb = $this->model_tool_image->resize($mmos_thumb[0]['image'], $setting['width'], $setting['height']);
+                    } else {
+                        $mmos_image_thumb = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
+                    }
+            ]]></add>
+        </operation>
+        <operation info="replace ABC with 123">
+            <search position="before"><![CDATA['product_id'  => $product_info['product_id'],]]></search>
+            <add><![CDATA[
+                         'mmos_thumb' => $mmos_image_thumb,
+                        ]]></add>
+        </operation>    
+    </file>
+
+    <!--*Bestseller.php**Latest.php**Special.php*-->
+    <file path="catalog/controller/module/" name="bestseller.php,latest.php,special.php">
+        <operation info="replace ABC with 123">
+            <search position="before"><![CDATA[if ($result['image']) {]]></search>
+            <add><![CDATA[
+                        $mmos_thumb = $this->model_catalog_product->getProductImages($result['product_id']);
+                        if (($mmos_thumb) && ($mmos_thumb[0]) && ($mmos_thumb[0]['image'])) {
+                            $mmos_image_thumb = $this->model_tool_image->resize($mmos_thumb[0]['image'], $setting['width'], $setting['height']);
+                        } else {
+                            $mmos_image_thumb = $this->model_tool_image->resize('placeholder.png', $setting['width'], $setting['height']);
+                        }
+                        ]]></add>                    
+        </operation>    
+        <operation info="replace ABC with 123">
+            <search position="before"><![CDATA['product_id'  => $result['product_id'],]]></search>
+            <add><![CDATA[
+                         'mmos_thumb' => $mmos_image_thumb,
+                        ]]></add>
+        </operation>
+    </file>
+
+    <!--*Bestseller**Latest**Special**Featured**{.tpl}*-->
+    <file path="catalog/view/theme/*/template/module/" name="featured.tpl,bestseller.tpl,latest.tpl,special.tpl">
+        <operation info="replace ABC with 123">
+            <search position="replace"><![CDATA[<div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>]]></search>
+            <add><![CDATA[
+                    <div class="image" style="position: relative;">
+                        <a href="<?php echo $product['href']; ?>">
+                            <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive thumb-module" style="position: absolute; left: 11%;" />
+                            <img src="<?php echo $product['mmos_thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+                        </a>
+                    </div>
+                        ]]></add>
+        </operation> 
+    </file>
+
+    <!--*category*-->
+    <file path="catalog/controller/product/" name="category.php,manufacturer.php,search.php,special.php">
+        <operation info="replace ABC with 123">
+            <search position="before"><![CDATA[if ($result['image']) {]]></search>
+            <add><![CDATA[
+                    $mmos_thumb = $this->model_catalog_product->getProductImages($result['product_id']);
+                    if (($mmos_thumb) && ($mmos_thumb[0]) && ($mmos_thumb[0]['image'])) {
+                        $mmos_image_thumb = $this->model_tool_image->resize($mmos_thumb[0]['image'],  $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+                    } else {
+                        $mmos_image_thumb = $this->model_tool_image->resize('placeholder.png', $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+                    }
+                        ]]></add>
+        </operation>
+        <operation info="replace ABC with 123">
+            <search position="after"><![CDATA['product_id'  => $result['product_id'],]]></search>
+            <add><![CDATA[
+                         'mmos_thumb' => $mmos_image_thumb,
+                        ]]></add>
+        </operation>
+    </file>
+    <file name="catalog/controller/product/product.php">
+        <operation info="replace ABC with 123">
+            <search position="before"><![CDATA[if ($result['image']) {]]></search>
+            <add><![CDATA[
+                        $mmos_thumb_related = $this->model_catalog_product->getProductImages($result['product_id']);
+                        if (($mmos_thumb_related) && ($mmos_thumb_related[0]) && ($mmos_thumb_related[0]['image'])) {
+                            $mmos_image_thumb_related = $this->model_tool_image->resize($mmos_thumb_related[0]['image'], $this->config->get('config_image_related_width'), $this->config->get('config_image_related_height'));
+                        } else {
+                            $mmos_image_thumb_related = $this->model_tool_image->resize('placeholder.png', $this->config->get('config_image_related_width'), $this->config->get('config_image_related_height'));
+                        }
+                        ]]></add>
+        </operation> 
+        <operation info="replace ABC with 123">
+            <search position="after"><![CDATA['product_id'  => $result['product_id'],]]></search>
+            <add><![CDATA[
+                         'mmos_thumb_related' => $mmos_image_thumb_related,
+                        ]]></add>
+        </operation>
+        <operation info="replace ABC with 123">
+            <search position="after"><![CDATA[$this->load->model('tool/image');]]></search>
+            <add><![CDATA[
+                        $mmos_thumb = $this->model_catalog_product->getProductImages($product_id);
+                        if (($mmos_thumb) && ($mmos_thumb[0]) && ($mmos_thumb[0]['image'])) {
+                            $data['mmos_image_thumb'] = $this->model_tool_image->resize($mmos_thumb[0]['image'],  $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+                        } else {
+                            $data['mmos_image_thumb'] = $this->model_tool_image->resize('placeholder.png', $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+                        }
+                        ]]></add>
+        </operation>
+    </file>   
+    <file name="catalog/view/theme/*/template/product/product.tpl">
+        <operation info="replace ABC with 123">
+            <search position="replace"><![CDATA[<div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>]]></search>
+            <add><![CDATA[
+                    <div class="image" style="position: relative;">
+                        <a href="<?php echo $product['href']; ?>">
+                            <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive thumb-pd" style="position: absolute; left: 34%;" />
+                            <img src="<?php echo $product['mmos_thumb_related']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+                        </a>
+                    </div>
+					
+                        ]]></add>
+        </operation>        
+        <operation info="replace ABC with 123">
+            <search position="replace"><![CDATA[<li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>]]></search>
+            <add><![CDATA[
+                    <li>
+                        <div class="image" style="position: relative;">
+                            <a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>">
+                                <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" class="img-responsive thumb-pd" style="position: absolute; left: 34%;" />
+                                <img src="<?php echo $mmos_image_thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+                            </a>
+                        </div>
+                    </li>
+					
+                        ]]></add>
+        </operation>        
+    </file>   
+    <file path="catalog/view/theme/*/template/product/" name="special.tpl,manufacturer_info.tpl,search.tpl,category.tpl">
+        <operation info="replace ABC with 123">
+            <search position="replace"><![CDATA[<div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>]]></search>
+            <add><![CDATA[
+                    <div class="image" style="position: relative;">
+                        <a href="<?php echo $product['href']; ?>">
+                            <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive thumb-cmss" style="position: absolute; left: 6%;" />
+                            <img src="<?php echo $product['mmos_thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+                        </a>
+                    </div>
+                        ]]></add>
+        </operation>        
+    </file>
+</modification>

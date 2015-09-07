@@ -1,0 +1,47 @@
+/*
+Module : Pro Mega menu
+Author : treoden - treoden@gmail.com
+*/
+*{margin:0;padding:0}
+.responsive-menu-controller{display:none;text-align:center;width:100%;}
+#pro-mega-menu-container{display:table;width:100%}
+#pro-mega-menu{margin-bottom:0px}
+#pro-mega-menu li{list-style:none}
+#pro-mega-menu > li{float:left;position:relative;padding:0 20px;transition:color 1s ease 0s, background-color 1s ease 0s, box-shadow 1s ease 0s}
+.normal-submenu > li{position:relative;padding:0 10px}
+.pro-mega-menu-dropdown{display:none;position:absolute;top:100%;left:0;z-index:99}
+.pro-mega-menu-dropdown .pro-mega-menu-dropdown{top:0;left:100%}
+.mega-content{padding:20px;overflow:hidden}
+.pro-mega-menu-dropdown li:before{content:"\f105";display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1;padding-right:10px;}
+.mega-content h1,.mega-content h2,.mega-content h3,.mega-content h4{margin-top:0px}
+#pro-mega-menu li:hover > .pro-mega-menu-dropdown{display:block}
+#pro-mega-menu-container li.root > a, .responsive-menu-controller{font-family:Roboto}
+.columns4 .sub-menu-mega li{float:left;width:23%;margin-right:2%}
+.columns3 .sub-menu-mega li{float:left;width:30%;margin-right:3%}
+.columns2 .sub-menu-mega li{float:left;width:46%;margin-right:4%}
+span.red{color:red}
+span.bold{font-weight:bold}
+span.blue{color:blue}
+span.yellow{color:yellow}
+span.pink{color:pink}
+span.green{color:green}
+.columns4 .col-one{float:left;width:23%;margin-right:2%}
+.columns4 .col-two{float:left;width:48%;margin-right:2%}
+.columns4 .col-three{float:left;width:73%;margin-right:2%}
+.columns3 .col-one{float:left;width:30%;margin-right:3%}
+.columns3 .col-two{float:left;width:64%;margin-right:3%}
+.columns2 .col-one{float:left;width:46%;margin-right:4%}
+/* Responsive */
+@media only screen and (max-width : 767px) {
+.responsive-menu-controller{display:block}
+#pro-mega-menu{display:none}
+#pro-mega-menu .mega-root .pro-mega-menu-dropdown{display:none!important}
+#pro-mega-menu > li.root{float:none;width:100%}
+#pro-mega-menu > li.root > a,.normal-submenu > li > a{display:inline-block;height:100%}
+.normal-submenu{width:100%}
+.normal-submenu > li:hover{background:none}
+.normal-submenu > li, .sub-menu-mega > li{height:auto}
+.pro-mega-menu-dropdown{position:static;background:none}
+.pro-mega-menu-dropdown .pro-mega-menu-dropdown{display:block}
+html .pro-mega-menu-dropdown{border-bottom:0px}
+}

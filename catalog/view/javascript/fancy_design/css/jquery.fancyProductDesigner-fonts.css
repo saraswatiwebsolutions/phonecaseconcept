@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Carme";
+  src: local("#"), url(fonts/Carme.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "Copperplate Bold";
+  src: local("#"), url(fonts/Copperplate Bold.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "OpenSans";
+  src: local("#"), url(fonts/OpenSans.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "destroy";
+  src: local("#"), url(fonts/destroy.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "fearless";
+  src: local("#"), url(fonts/fearless.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "fpd-jquery";
+  src: local("#"), url(fonts/fpd-jquery.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "league_gothic-webfont";
+  src: local("#"), url(fonts/league_gothic-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+

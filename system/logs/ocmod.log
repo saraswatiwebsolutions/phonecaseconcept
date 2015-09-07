@@ -1,0 +1,227 @@
+2015-08-19 16:47:03 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Local copy OCMOD by iSenseLabs
+FILE: admin/controller/extension/installer.php
+CODE: 'url'  => str_replace('&amp;', '&', $this->url->link('extension/installer/ftp', 'token=' . $this->session->data['token'], 'SSL')),
+LINE: 132
+CODE: public function unzip() {
+LINE: 282
+----------------------------------------------------------------
+2015-08-19 16:48:20 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Fancy Product Designer for OpenCart 2.0.x
+FILE: admin/view/template/common/menu.tpl
+CODE: <li><a href="<?php echo $product; ?>"><?php echo $text_product; ?></a></li>
+LINE: 23
+FILE: admin/controller/common/menu.php
+CODE: $data['text_openbay_order_import'] = $this->language->get('text_openbay_order_import');
+LINE: 114
+CODE: $data['order_recurring'] = $this->url->link('sale/recurring', 'token=' . $this->session->data['token'], 'SSL');
+LINE: 194
+FILE: admin/language/english/common/menu.php
+CODE: $_['text_zone']
+LINE: 90
+FILE: admin/model/sale/order.php
+CODE: public function getTotalEmailsByProductsOrdered($products) {
+LINE: 438
+FILE: admin/controller/sale/order.php
+CODE: $data['products'][] = array(
+LINE: 1439
+CODE: $data['heading_title']
+LINE: 398
+LINE: 563
+LINE: 923
+LINE: 1748
+CODE: $data['products'][] = array(
+LINE: 1443
+FILE: admin/view/template/sale/order_info.tpl
+CODE: <?php foreach ($product['option'] as $option) { ?>
+LINE: 317
+FILE: admin/language/english/sale/order.php
+CODE: $_['text_history']
+LINE: 120
+FILE: system/library/cart.php
+CODE: $this->data[$key] = array(
+LINE: 254
+CODE: unset($this->session->data['cart'][$key]);
+LINE: 339
+CODE: $product_query->row['product_id'],
+LINE: 261
+FILE: system/library/customer.php
+CODE: public function logout() {
+LINE: 104
+FILE: catalog/controller/common/seo_url.php
+CODE: $url = explode('=', $query->row['query']);
+LINE: 24
+CODE: if ($query->row['query'] && $url[0] != 'information_id' && $url[0] != 'manufacturer_id' && $url[0] != 'category_id' && $url[0] != 'product_id') {
+LINE: 46
+CODE: } elseif (isset($this->request->get['path'])) {
+LINE: 61
+CODE: if (($data['route'] == 'product/product' && $key == 'product_id') || (($data['route'] == 'product/manufacturer/info' || $data['route'] == 'product/product') && $key == 'manufacturer_id') || ($data['route'] == 'information/information' && $key == 'information_id')) {
+LINE: 87
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 36
+CODE: 'gif',
+LINE: 237
+CODE: 'image/x-png',
+LINE: 251
+FILE: admin/model/tool/image.php
+CODE: $image->save(DIR_IMAGE . $new_image);
+LINE: 77
+FILE: catalog/controller/common/cart.php
+CODE: $data['products'][] = array(
+LINE: 103
+CODE: $data['products'] = array();
+LINE: 54
+CODE: $option_data = array();
+LINE: 67
+FILE: catalog/controller/checkout/cart.php
+CODE: $data['products'][] = array(
+LINE: 158
+CODE: $option_data = array();
+LINE: 101
+CODE: $data['products'][] = array(
+LINE: 164
+CODE: $data['text_next_choice']
+LINE: 25
+FILE: catalog/view/theme/default/template/checkout/cart.tpl
+CODE: <?php foreach ($product['option'] as $option) { ?>
+LINE: 64
+CODE: <?php echo $header; ?>
+LINE: 5
+FILE: catalog/view/theme/default/template/common/cart.tpl
+CODE: <?php if ($products || $vouchers) { ?>
+LINE: 8
+FILE: catalog/language/english/checkout/cart.php
+CODE: $_['text_payment_cancel']
+LINE: 27
+FILE: catalog/controller/account/order.php
+CODE: $data['products'][] = array(
+LINE: 327
+CODE: $data['products'][] = array(
+LINE: 328
+CODE: $data['text_comment']
+LINE: 169
+CODE: $this->cart->add($order_product_info['product_id'], $order_product_info['quantity'], $option_data);
+LINE: 486
+FILE: catalog/model/account/order.php
+CODE: public function getOrders($start = 0, $limit = 20) {
+LINE: 108
+FILE: catalog/view/theme/default/template/account/order_info.tpl
+CODE: <?php echo $product['name']; ?>
+LINE: 87
+FILE: catalog/language/english/account/order.php
+CODE: $_['text_error']
+LINE: 20
+FILE: catalog/controller/checkout/confirm.php
+CODE: $order_data['products'][] = array(
+LINE: 220
+CODE: $order_data['products'][] = array(
+LINE: 222
+FILE: catalog/model/checkout/order.php
+CODE: $order_product_id = $this->db->getLastId();
+LINE: 24
+LINE: 86
+CODE: public function addOrderHistory
+LINE: 285
+FILE: catalog/controller/product/product.php
+CODE: $data['tags'] = array();
+LINE: 448
+FILE: catalog/language/english/product/product.php
+CODE: $_['text_year']
+LINE: 32
+FILE: catalog/view/theme/default/template/product/product.tpl
+CODE: id="button-cart"
+LINE: 320
+FILE: catalog/controller/product/category.php
+CODE: $this->load->model('tool/image');
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 219
+CODE: $data['products'][] = array(
+LINE: 220
+CODE: $this->load->model('catalog/product');
+LINE: 8
+CODE: $data['text_limit']
+LINE: 112
+FILE: catalog/language/english/product/category.php
+CODE: $_['text_price']
+LINE: 11
+FILE: catalog/view/theme/default/template/product/category.tpl
+CODE: <div class="button-group">
+LINE: 129
+FILE: catalog/controller/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: $data['products'][] = array(
+LINE: 66
+CODE: $this->load->model('catalog/product');
+LINE: 14
+CODE: $this->load->model('catalog/product');
+LINE: 14
+CODE: $data['button_cart']
+LINE: 10
+FILE: catalog/language/english/module/featured.php
+CODE: $_['heading_title']
+LINE: 3
+FILE: catalog/view/theme/default/template/module/featured.tpl
+CODE: <div class="button-group">
+LINE: 36
+FILE: catalog/controller/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 65
+CODE: $data['products'][] = array(
+LINE: 66
+CODE: $this->load->model('catalog/product');
+LINE: 14
+CODE: $this->load->model('catalog/product');
+LINE: 14
+CODE: $data['button_cart']
+LINE: 10
+FILE: catalog/language/english/module/latest.php
+CODE: $_['heading_title']
+LINE: 3
+FILE: catalog/view/theme/default/template/module/latest.tpl
+CODE: <div class="button-group">
+LINE: 36
+----------------------------------------------------------------
+MOD: Local copy OCMOD by iSenseLabs
+FILE: admin/controller/extension/installer.php
+CODE: 'url'  => str_replace('&amp;', '&', $this->url->link('extension/installer/ftp', 'token=' . $this->session->data['token'], 'SSL')),
+LINE: 132
+CODE: public function unzip() {
+LINE: 282
+----------------------------------------------------------------
